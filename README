@@ -23,6 +23,8 @@ bmk s - Saves the current location to your bookmarks
 bmk l - Lists bookmarked location
 bmk g <bookmark number> - Jump to bookmarked location
 bmk d <bookmark number> - Deletes bookmarked location
+
+Extras:
+bmk <bookmark number> - Jumps to bookmarked location if exists
+bmk <invalid argument> - Lists valid commands
 bmk (no args) - Defaults to list bookmarks
-
-
