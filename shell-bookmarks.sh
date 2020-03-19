@@ -15,7 +15,7 @@
 ##################emceelamb#####
 
 #### BOOKMARK FILE LOCATION ####
-bookmarkfile="$(pwd)/.shellbookmarks"
+bookmarkfile="$HOME/.shellbookmarks"
 
 RED="1;31m"
 GREEN="1;32m"
@@ -39,7 +39,7 @@ function bmk() {
 
 ##### REMOVE ALL BOOK MARKS #####  
   if [[ $1 == 'clear' ]]; then
-    rm  $bookmarkfile > /dev/null
+    mv $bookmarkfile ${bookmarkfile}.bak # Backup bookmarks
     touch $bookmarkfile
     echo "Cleared all bookmarks"
 

@@ -29,3 +29,5 @@ Extras:
 bmk <bookmark number> - Jumps to bookmarked location if exists
 bmk <invalid argument> - Lists valid commands
 bmk (no args) - Defaults to list bookmarks
+
+Bookmarks are saved in $HOME/.shellbookmarks
