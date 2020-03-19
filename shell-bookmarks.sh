@@ -48,7 +48,6 @@ function bmk() {
 ######## GOTO BOOKMARK #######
   elif [[ $1 == 'g' ]]; then
     working_dir=${saved_bookmarks[$2]}
-    echo "one"
     cd $working_dir
     echo -e "\e[${GREEN}Jumped to $working_dir.\e[${NORMAL}"
 
