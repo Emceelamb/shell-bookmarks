@@ -23,6 +23,7 @@ bmk s - Saves the current location to your bookmarks
 bmk l - Lists bookmarked location
 bmk g <bookmark number> - Jump to bookmarked location
 bmk d <bookmark number> - Deletes bookmarked location
+bmk clear - Deletes all bookmarks
 
 Extras:
 bmk <bookmark number> - Jumps to bookmarked location if exists

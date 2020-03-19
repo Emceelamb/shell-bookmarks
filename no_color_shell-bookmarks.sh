@@ -17,14 +17,10 @@
 #### BOOKMARK FILE LOCATION ####
 bookmarkfile="$(pwd)/.shellbookmarks"
 
-RED="1;31m"
-GREEN="1;32m"
-NORMAL="0m"
-
 if [ ! -e "$bookmarkfile" ]
 then
   touch $bookmarkfile
-  echo -e "Bookmark location: \e[${RED}$bookmarkfile\e[${NORMAL}"
+  echo -e "Bookmark location: $bookmarkfile"
 fi
 
 function bmk() {
@@ -57,21 +53,21 @@ function bmk() {
   elif [[ $1 == 'g' ]]; then
     bookmark=( ${saved_bookmarks[$2]} )
     cd ${bookmark[0]}
-    echo -e "\e[${GREEN}Jumped to ${bookmark[1]}.\e[${NORMAL}"
+    echo -e "Jumped to ${bookmark[1]}."
 
 ######## SAVE BOOKMARK #######
   elif [[ $1 == 's' ]]; then
     current_dir=$(pwd)
     basename=$(basename $current_dir)
     echo $current_dir $basename >> $bookmarkfile
-    echo -e "Saved \e[${RED}$basename\e[${NORMAL} to bookmarks."
+    echo -e "Saved $basename to bookmarks."
 
 ####### DELETE BOOKMARK ######
   elif [[ $1 == 'd' ]]; then
     bookmark=( ${saved_bookmarks[$2]} )
     toDelete=$(($2 + 1))
     sed -i "${toDelete}d" $bookmarkfile
-    echo -e "Deleted \e[${RED}${bookmark[1]}\e[${NORMAL} from bookmarks."
+    echo -e "Deleted ${bookmark[1]} from bookmarks."
 
 
 ##############################
@@ -81,7 +77,7 @@ function bmk() {
 ####### IF INVALID ARG #######
 
   elif [[ $1 !=  [0-9] ]]; then
-    echo -e "\e[${RED}Bookmark command not recognized!\e[${NORMAL}"
+    echo -e "Bookmark command not recognized!"
     echo -e "View saved bookmarks with 'bmk l'"
     echo -e "Save location to bookmark with 'bmk s'"
     echo -e "Delete saved bookmark with 'bmk d <bookmark>'"
@@ -96,10 +92,10 @@ function bmk() {
   elif [[ $1 -ge 0 ]] && [[ $1 -le ${#saved_bookmarks[@]} ]]; then
     bookmark=( ${saved_bookmarks[$1]} )
     cd ${bookmark[0]}
-    echo -e "\e[${GREEN}Jumped to ${bookmark[1]}.\e[${NORMAL}"
+    echo -e "Jumped to ${bookmark[1]}."
   
   elif [[ $1 -gt ${#saved_bookmarks[@]} ]]; then
-    echo -e "\e[${RED}Bookmark not found!\e[${NORMAL}"
+    echo -e "Bookmark not found!"
 
   fi
 
