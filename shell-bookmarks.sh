@@ -28,7 +28,14 @@ then
 fi
 
 function bmk() {
-  readarray -t saved_bookmarks < $bookmarkfile
+
+  # readarray requires GNU Bash 4.0 <=
+  # readarray -t saved_bookmarks < $bookmarkfile
+
+  saved_bookmarks=()
+  while IFS= read -r line; do
+    saved_bookmarks+=("$line")
+  done < $bookmarkfile
 
 ######## LIST BOOKMARKS #######
   if [[ -z "$1" ]] || [[ $1 == 'l' ]]; then
@@ -56,6 +63,7 @@ function bmk() {
     toDelete=$(($2 + 1))
     sed -i "${toDelete}d" $bookmarkfile
     echo -e "Deleted \e[${RED}${saved_bookmarks[$2]}\e[${NORMAL} from bookmarks."
+
 
 ##############################
 ########  EDGE CASES   #######
@@ -85,5 +93,12 @@ function bmk() {
 
   fi
 
-  readarray -t saved_bookmarks < $bookmarkfile
+  # readarray requires GNU Bash 4.0 <=
+  # readarray -t saved_bookmarks < $bookmarkfile
+  
+    saved_bookmarks=()
+    while IFS= read -r line; do
+      saved_bookmarks+=("$line")
+    done < $bookmarkfile
+    echo $saved_bookmarks  dd
 }
