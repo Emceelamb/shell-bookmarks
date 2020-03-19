@@ -99,5 +99,5 @@ function bmk() {
     while IFS= read -r line; do
       saved_bookmarks+=("$line")
     done < $bookmarkfile
-    echo $saved_bookmarks  dd
+    echo $saved_bookmarks  
 }
