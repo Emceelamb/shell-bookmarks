@@ -35,11 +35,16 @@ function bmk() {
 
 ##### REMOVE ALL BOOK MARKS #####  
   if [[ $1 == 'clear' ]]; then
-    mv  $bookmarkfile ${bookmarkfile}.bak # Backup bookmarksfile
+    mv $bookmarkfile ${bookmarkfile}.bak # Backup bookmarks
     touch $bookmarkfile
     echo "Cleared all bookmarks"
 
 ######## LIST BOOKMARKS #######
+##### CHECK IF NO BOOKMARK EXISTS #####
+  elif [[ -z "$1" ]] && [[ $(cat $bookmarkfile | wc -l) -eq 0 ]] || [[ $1 == 'l' ]] && [[ $(cat $bookmarkfile | wc -l) -eq 0 ]]; then
+    echo -e "No bookmarks found!"
+
+##### IF BOOKMARK EXISTS #####
   elif [[ -z "$1" ]] || [[ $1 == 'l' ]]; then
     counter=0
     for i in "${saved_bookmarks[@]}"
@@ -50,10 +55,16 @@ function bmk() {
     done
 
 ######## GOTO BOOKMARK #######
-  elif [[ $1 == 'g' ]]; then
+##### CHECK IF NO BOOKMARK EXISTS #####
+  elif [[ $1 == 'g' && $(cat $bookmarkfile | wc -l) -eq 0 ]]; then
+    echo -e "Bookmark not found!"
+
+##### IF BOOKMARK EXISTS #####
+  elif [[ $1 == 'g' && $(cat $bookmarkfile | wc -l) > 0 ]]; then
+
     bookmark=( ${saved_bookmarks[$2]} )
     cd ${bookmark[0]}
-    echo -e "Jumped to ${bookmark[1]}."
+    echo -e "Go to ${bookmark[1]}."
 
 ######## SAVE BOOKMARK #######
   elif [[ $1 == 's' ]]; then
@@ -63,6 +74,11 @@ function bmk() {
     echo -e "Saved $basename to bookmarks."
 
 ####### DELETE BOOKMARK ######
+##### CHECK IF NO BOOKMARK EXISTS #####
+  elif [[ $1 == 'd' && $(cat $bookmarkfile | wc -l) -eq 0 ]]; then
+    echo -e "Bookmark not found!"
+
+##### IF BOOKMARK EXISTS #####
   elif [[ $1 == 'd' ]]; then
     bookmark=( ${saved_bookmarks[$2]} )
     toDelete=$(($2 + 1))
@@ -89,12 +105,19 @@ function bmk() {
 ################  GO TO BOOKMARK  ##################
 ####################################################
 
+##### CHECK IF NO BOOKMARK EXISTS #####
+  elif [[ $1 == '0' && $(cat $bookmarkfile | wc -l) -eq 0 ]]; then
+    echo -e "Bookmark not found!"
+
+##### OTHERWISE GOTO BOOKMARK #####
   elif [[ $1 -ge 0 ]] && [[ $1 -le ${#saved_bookmarks[@]} ]]; then
     bookmark=( ${saved_bookmarks[$1]} )
     cd ${bookmark[0]}
-    echo -e "Jumped to ${bookmark[1]}."
+    echo -e "${bookmark[1]}."
   
   elif [[ $1 -gt ${#saved_bookmarks[@]} ]]; then
+    echo -e "Bookmark not found!"
+  else:
     echo -e "Bookmark not found!"
 
   fi
