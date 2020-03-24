@@ -13,7 +13,8 @@
 ##################emceelamb#####
 
 My implementation of bookmarks for the shell. 
-Designed to goto working directories quickly and reduce cognitive load by removing bookmark names.
+Designed to goto working directories quickly 
+and reduce cognitive load of remembering bookmark names.
 Loosely inspired by huyng/bashmarks 
 
 Install:  
