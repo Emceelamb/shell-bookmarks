@@ -15,10 +15,10 @@
 My implementation of bookmarks for the shell. 
 Designed to goto working directories quickly 
 and reduce cognitive load of remembering bookmark names.
-Loosely inspired by huyng/bashmarks 
 
 Install:  
 Please add 'source <yourScriptsDirectory>/shell-bookmarks.sh' to your .bashrc file
+or 'source <yourScriptsDirectory/no_color_shell-bashmarks.sh' if your terminal doesn't support ANSI color codes.
 
 Usage:
 bmk s - Saves the current location to your bookmarks
@@ -33,3 +33,5 @@ bmk <invalid argument> - Lists valid commands
 bmk (no args) - Defaults to list bookmarks
 
 Bookmarks are saved in $HOME/.shellbookmarks
+
+Loosely inspired by huyng/bashmarks 
