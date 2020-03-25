@@ -37,7 +37,7 @@ function bmk() {
   if [[ $1 == 'clear' ]]; then
     mv $bookmarkfile ${bookmarkfile}.bak # Backup bookmarks
     touch $bookmarkfile
-    echo "Cleared all bookmarks"
+    echo "Cleared all bookmarks."
 
 ######## LIST BOOKMARKS #######
 ##### CHECK IF NO BOOKMARK EXISTS #####
