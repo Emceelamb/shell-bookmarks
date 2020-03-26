@@ -17,10 +17,6 @@
 #### BOOKMARK FILE LOCATION ####
 bookmarkfile="$HOME/.shellbookmarks"
 
-#### BASH SIMPLE CURSES ####
-curseswindow="$PWD/bash-curses/bookmark_window"
-
-### ANSI COLOR CODES ###
 RED="1;31m"
 GREEN="1;32m"
 NORMAL="0m"
@@ -54,16 +50,13 @@ function bmk() {
 
 ##### IF BOOKMARK EXISTS #####
   elif [[ -z "$1" ]] || [[ $1 == 'l' ]]; then
-    $curseswindow
-    
-    ### SIMPLE BOOKMARKS ###
-    # counter=0
-    # for i in "${saved_bookmarks[@]}"
-    # do 
-    #   bookmark=($i)
-    #   printf '[%d] /%s\n' "$counter" "${bookmark[1]}"
-    #   (( counter++))
-    # done
+    counter=0
+    for i in "${saved_bookmarks[@]}"
+    do 
+      bookmark=($i)
+      printf '[%d] /%s\n' "$counter" "${bookmark[1]}"
+      (( counter++))
+    done
 
 ######## GOTO BOOKMARK #######
 ##### CHECK IF NO BOOKMARK EXISTS #####
@@ -73,7 +66,6 @@ function bmk() {
 ##### IF BOOKMARK EXISTS #####
   elif [[ $1 == 'g' && $(cat $bookmarkfile | wc -l) > 0 ]]; then
 
-    tput clear
     bookmark=( ${saved_bookmarks[$2]} )
     cd ${bookmark[0]}
     echo -e "\e[${GREEN}Go to ${bookmark[1]}.\e[${NORMAL}"
@@ -123,7 +115,6 @@ function bmk() {
 
 ##### OTHERWISE GOTO BOOKMARK #####
   elif [[ $1 -ge 0 ]] && [[ $1 -le ${#saved_bookmarks[@]} ]]; then
-    tput clear
     bookmark=( ${saved_bookmarks[$1]} )
     cd ${bookmark[0]}
     echo -e "\e[${GREEN}Go to ${bookmark[1]}.\e[${NORMAL}"
@@ -142,4 +133,6 @@ function bmk() {
     while IFS= read -r line; do
       saved_bookmarks+=("$line")
     done < $bookmarkfile
+
+    tput cnorm
 }
