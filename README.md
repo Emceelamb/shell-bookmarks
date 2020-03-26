@@ -13,16 +13,16 @@ Designed to goto working directories quickly and reduce cognitive load of rememb
 - or `source <yourScriptsDirectory/no_color_shell-bashmarks.sh` if your terminal doesn't support ANSI color codes.
 
 ## Usage:
-`bmk s` - Saves the current location to your bookmarks
-`bmk l` - Lists bookmarked location
-`bmk g` <bookmark number> - Go to to bookmarked location
-`bmk d` <bookmark number> - Deletes bookmarked location
-`bmk clear` - Deletes all bookmarks
+`bmk s` - Saves the current location to your bookmarks  
+`bmk l` - Lists bookmarked location  
+`bmk g` <bookmark number> - Go to to bookmarked location  
+`bmk d` <bookmark number> - Deletes bookmarked location  
+`bmk clear` - Deletes all bookmarks  
 
 Extras:
-`bmk <bookmark number>` - Go to bookmarked location if exists
-`bmk <invalid argument>` - Lists valid commands
-`bmk (no args)` - Defaults to list bookmarks
+`bmk <bookmark number>` - Go to bookmarked location if exists  
+`bmk <invalid argument>` - Lists valid commands  
+`bmk (no args)` - Defaults to list bookmarks  
 
 Bookmarks are saved in `$HOME/.shellbookmarks`
 
