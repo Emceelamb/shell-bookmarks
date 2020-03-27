@@ -19,7 +19,7 @@ Designed to goto working directories quickly and reduce cognitive load of rememb
 `bmk d` <bookmark number> - Deletes bookmarked location  
 `bmk clear` - Deletes all bookmarks  
 
-Extras:
+__Extras__:  
 `bmk <bookmark number>` - Go to bookmarked location if exists  
 `bmk <invalid argument>` - Lists valid commands  
 `bmk (no args)` - Defaults to list bookmarks  
