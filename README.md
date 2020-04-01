@@ -9,7 +9,7 @@ Designed to goto working directories quickly and reduce cognitive load of rememb
 
 ## Setup & Install:  
 - Please clone with `git clone git@github.com:Emceelamb/shell-bookmarks.git --recursive`  
-- Please add `source <yourScriptsDirectory>/shell-bookmarks.sh` to your .bashrc file  
+- Please add `source <yourScriptsDirectory>/shell-bookmarks.sh` to your `.bashrc` file  
 - or `source <yourScriptsDirectory/no_color_shell-bashmarks.sh` if your terminal doesn't support ANSI color codes.
 
 ## Usage:
