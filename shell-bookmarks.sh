@@ -18,7 +18,7 @@
 bookmarkfile="$HOME/.shellbookmarks"
 
 #### BASH SIMPLE CURSES ####
-curseswindow="$PWD/bash-curses/bookmark_window"
+curseswindow="./bash-curses/bookmark_window"
 
 ### ANSI COLOR CODES ###
 RED="1;31m"
