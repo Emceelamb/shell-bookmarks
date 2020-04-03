@@ -1,3 +1,6 @@
 [submodule "bash-curses/bashsimplecurses"]
 	path = bash-curses/bashsimplecurses
 	url = https://github.com/metal3d/bashsimplecurses
+[submodule "bash-curses/simplecurses"]
+	path = bash-curses/simplecurses
+	url = https://github.com/Emceelamb/bashsimplecurses.git
