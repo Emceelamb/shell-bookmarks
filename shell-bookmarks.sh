@@ -18,7 +18,7 @@
 bookmarkfile="$HOME/.shellbookmarks"
 
 #### BASH SIMPLE CURSES ####
-curseswindow="./bash-curses/bookmark_window.sh"
+curseswindow="$(dirname $(readlink -f '$0'))/bash-curses/bookmark_window.sh"
 
 ### ANSI COLOR CODES ###
 RED="1;31m"
