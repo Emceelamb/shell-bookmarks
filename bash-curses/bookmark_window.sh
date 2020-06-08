@@ -1,4 +1,4 @@
-source $(dirname $0)/bashsimplecurses/simple_curses.sh
+source $(dirname $0)/simplecurses/simple_curses.sh
 
 bookmarkfile="$HOME/.shellbookmarks"
 main(){
