@@ -30,3 +30,4 @@ Bookmarks are saved in `$HOME/.shellbookmarks`
 Loosely inspired by [huyng/bashmarks](https://github.com/huyng/bashmarks/)  
 Curses library by [metal3d](https://github.com/metal3d/bashsimplecurses)
 
+hi
